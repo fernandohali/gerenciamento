@@ -100,19 +100,59 @@ class MyHomePage extends StatelessWidget {
 }
 
 class MyPerfil extends StatelessWidget {
-  const MyPerfil({super.key,});
+  const MyPerfil({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Adicione a lógica para o Item 1 aqui
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Adicione a lógica para o Item 2 aqui
+              },
+            ),
+            // Adicione mais itens do menu conforme necessário
+          ],
+        ),
       ),
       body: Center(
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Parte 1
+            // ... Parte 1
             Container(
               width: 430,
               height: 932,
@@ -134,7 +174,7 @@ class MyPerfil extends StatelessWidget {
               ),
             ),
 
-            // Parte 2
+            // ... Parte 2
             Container(
               width: 430,
               height: 932,
@@ -160,7 +200,8 @@ class MyPerfil extends StatelessWidget {
                       decoration: ShapeDecoration(
                         color: const Color(0xFFF1F1F1),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(7)),
+                          borderRadius: BorderRadius.circular(7),
+                        ),
                       ),
                     ),
                   ),
@@ -172,7 +213,8 @@ class MyPerfil extends StatelessWidget {
                       height: 110,
                       decoration: const ShapeDecoration(
                         image: DecorationImage(
-                          image: NetworkImage("https://via.placeholder.com/110x110"),
+                          image: NetworkImage(
+                              "https://via.placeholder.com/110x110"),
                           fit: BoxFit.fill,
                         ),
                         shape: OvalBorder(),
@@ -204,10 +246,10 @@ class MyPerfil extends StatelessWidget {
                       width: 176,
                       height: 17,
                       child: Text(
-                        'Rodrigo Barreto Rodrigues',
+                        'Fernando Hali',
                         style: TextStyle(
                           color: Color(0xFF3D3F42),
-                          fontSize: 12,
+                          fontSize: 16,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           height: 0,
@@ -274,7 +316,7 @@ class MyPerfil extends StatelessWidget {
                       width: 250,
                       height: 19,
                       child: Text(
-                        'Olá, Rodrigo. Bem-vindo!',
+                        'Olá, Fernando Hali. Bem-vindo!',
                         style: TextStyle(
                           color: Color(0xFF3D3F42),
                           fontSize: 20,
@@ -294,4 +336,3 @@ class MyPerfil extends StatelessWidget {
     );
   }
 }
-
