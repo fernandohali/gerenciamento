@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Gerenciamento de sala'),
+      home: const MyHomePage(title: 'Gerenciamento de sala'),
     );
   }
 }
@@ -45,9 +45,9 @@ class MyHomePage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Navegar para a nova tela quando o botão for pressionado
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => MyPerfil()),
+                    MaterialPageRoute(builder: (context) => const MyPerfil()),
                   );
                 },
                 child: const Text('Login com conta google'),
@@ -100,22 +100,198 @@ class MyHomePage extends StatelessWidget {
 }
 
 class MyPerfil extends StatelessWidget {
-  const MyPerfil({super.key});
+  const MyPerfil({super.key,});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
       ),
       body: Center(
         child: Stack(
           alignment: Alignment.center,
           children: [
-            
+            // Parte 1
+            Container(
+              width: 430,
+              height: 932,
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    child: Container(
+                      width: 46,
+                      height: 932,
+                      decoration: const BoxDecoration(color: Color(0xFF212224)),
+                    ),
+                  ),
+                  // ... adicione as outras partes conforme necessário
+                ],
+              ),
+            ),
+
+            // Parte 2
+            Container(
+              width: 430,
+              height: 932,
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    child: Container(
+                      width: 46,
+                      height: 932,
+                      decoration: const BoxDecoration(color: Color(0xFF212224)),
+                    ),
+                  ),
+                  Positioned(
+                    left: 63,
+                    top: 26,
+                    child: Container(
+                      width: 344,
+                      height: 158,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFF1F1F1),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(7)),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 87,
+                    top: 50,
+                    child: Container(
+                      width: 110,
+                      height: 110,
+                      decoration: const ShapeDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage("https://via.placeholder.com/110x110"),
+                          fit: BoxFit.fill,
+                        ),
+                        shape: OvalBorder(),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    left: 215,
+                    top: 72,
+                    child: SizedBox(
+                      width: 176,
+                      height: 17,
+                      child: Text(
+                        'Professor',
+                        style: TextStyle(
+                          color: Color(0xFF3D3F42),
+                          fontSize: 12,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w700,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    left: 215,
+                    top: 88,
+                    child: SizedBox(
+                      width: 176,
+                      height: 17,
+                      child: Text(
+                        'Rodrigo Barreto Rodrigues',
+                        style: TextStyle(
+                          color: Color(0xFF3D3F42),
+                          fontSize: 12,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    left: 215,
+                    top: 105,
+                    child: SizedBox(
+                      width: 176,
+                      height: 17,
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Reservas confirmadas: ',
+                              style: TextStyle(
+                                color: Color(0xFF3D3E41),
+                                fontSize: 12,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                                height: 0,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '3',
+                              style: TextStyle(
+                                color: Color(0xFF3D3E41),
+                                fontSize: 12,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w700,
+                                height: 0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    left: 215,
+                    top: 122,
+                    child: SizedBox(
+                      width: 176,
+                      height: 17,
+                      child: Text(
+                        'Reservas em análise: 1',
+                        style: TextStyle(
+                          color: Color(0xFF3D3F42),
+                          fontSize: 12,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    left: 110,
+                    top: 251,
+                    child: SizedBox(
+                      width: 250,
+                      height: 19,
+                      child: Text(
+                        'Olá, Rodrigo. Bem-vindo!',
+                        style: TextStyle(
+                          color: Color(0xFF3D3F42),
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
